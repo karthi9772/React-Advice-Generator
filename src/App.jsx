@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
-
+import "./App.css";
 const App = () => {
-  const [Data, SetData] = useState(null);
+  const [Data, SetData] = useState("");
   const [input, SetInput] = useState("");
 
   const GetRandomAdvice = () => {
@@ -29,13 +29,35 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <div className="background">
-        <h2>{Data}</h2>
-        <button onClick={() => GetRandomAdvice()}>Advice!</button>
+    <div className="container">
+      <div className="title">
+        <h1>Quote Generator</h1>
       </div>
-      <input value={input} onChange={(e) => SetInput(e.target.value)}></input>
-      <button onClick={() => SearchAdvice(input)}>Get input Advice</button>
+      <div className="search">
+        <input
+          className="input"
+          placeholder="Enter Keyword for Advice"
+          value={input}
+          onChange={(e) => SetInput(e.target.value)}
+        ></input>
+        <button
+          onKeyDown={(e) => console.log(e)}
+          className="btn"
+          onClick={() => SearchAdvice(input)}
+        >
+          Get input Advice
+        </button>
+      </div>
+      <div className="background">
+        <div>
+          <div>
+            <h2>{Data}</h2>
+          </div>
+        </div>
+      </div>
+      <button className="advice-btn" onClick={() => GetRandomAdvice()}>
+        Advice!
+      </button>
     </div>
   );
 };
