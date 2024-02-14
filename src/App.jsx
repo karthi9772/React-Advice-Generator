@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div className="container">
       <div className="title">
-        <h1>Advice Generator</h1>
+        <h1 id="Title">Advice Generator</h1>
       </div>
       <div className="search">
         <input
